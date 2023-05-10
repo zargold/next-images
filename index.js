@@ -39,7 +39,7 @@ module.exports = ({ dynamicAssetPrefix = false, ...nextConfig } = {}) => {
                     }static/images/`,
                     postTransformPublicPath: (p) => {
                       if (isServer) {
-                        return `(require("next/config").default().serverRuntimeConfig.nextImagesAssetPrefix || '') + ${p}`;
+                        return `(require("next/config")().serverRuntimeConfig.nextImagesAssetPrefix || '') + ${p}`;
                       }
 
                       return `(__webpack_public_path__ || '') + ${p}`;
